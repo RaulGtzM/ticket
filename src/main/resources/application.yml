@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: ticket
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: password
+    jpa:
+      show-sql: true
+    platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+constants:
+  api:
+    uri:
+      basePath: /api/v1/operation
+      specificPaths:
+        ticket:
+          insert: /ticket/insert
+          get: /ticket/id
+
+errorResolver:
+  errorCodes:
+    businessValidationFailed: 422
+  messages:
+    businessValidationFailed: Registry not found
