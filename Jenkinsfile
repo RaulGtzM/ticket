@@ -18,11 +18,11 @@ pipeline {
     }
     stage('Build container') {
       steps {
-        sh 'docker build -t ticket:latest .'
-        sh 'docker stop ticket || true'
-        sh 'docker rm -fv ticket || true'
-        sh 'docker images -a | grep "<none>" | awk "{print \$3}" | xargs docker rmi -f'
-        sh 'docker run -dti -p 8081:8081 --name ticket ticket:latest'
+        sh "docker build -t ticket:latest ."
+        sh "docker stop ticket || true"
+        sh "docker rm -fv ticket || true"
+        sh "docker images -a | grep '<none>' | awk '{print \$3}' | xargs docker rmi -f"
+        sh "docker run -dti -p 8081:8081 --name ticket ticket:latest"
       }
     }
   }
