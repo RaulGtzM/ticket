@@ -34,8 +34,7 @@ public class TicketServiceImpl implements TicketService {
    */
   @Override
   public void createTicket(TicketRequest request) {
-    Ticket ticket = ticketRepository.save(new Ticket(request));
-    System.out.println(ticket);
+    ticketRepository.save(new Ticket(request));
   }
 
   /**
