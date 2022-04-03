@@ -1,11 +1,11 @@
-package com.example.ticket.service.impl;
+package com.example.ticket.service;
 
 import com.example.ticket.constant.ConstantsTest;
 import com.example.ticket.constant.ErrorResolverConstant;
 import com.example.ticket.entity.Ticket;
 import com.example.ticket.model.TicketRequest;
-import com.example.ticket.model.TicketResponse;
 import com.example.ticket.repository.TicketRepository;
+import com.example.ticket.service.impl.TicketServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
@@ -13,14 +13,17 @@ import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 /**
  * class to test TicketServiceImpl.
  */
+//@ExtendWith(MockitoExtension.class)
 public class TicketServiceImplTest {
 
   /**
@@ -53,6 +56,7 @@ public class TicketServiceImplTest {
   public void createTicketTest() {
     Mockito.when(ticketRepository.save(Mockito.any())).thenReturn(new Ticket());
     ticketService.createTicket(request);
+
   }
 
   @Test
